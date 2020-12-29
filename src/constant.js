@@ -1,2 +1,2 @@
 export const API_URL =
-  "https://e148d9cb-83f9-412d-a45b-95bb44dd6585.mock.pstmn.io/test";
+  "https://run.mocky.io/v3/be1c520d-b7a9-403e-9ac9-2887e4c1920b";

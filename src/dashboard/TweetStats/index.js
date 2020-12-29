@@ -1,31 +1,17 @@
+import { CCard, CCardBody, CProgress, CRow } from "@coreui/react";
 import React from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
-  CCallout,
-} from "@coreui/react";
-import { CChartPie } from "@coreui/react-chartjs";
-import CIcon from "@coreui/icons-react";
 
 const TweetStats = ({ data }) => {
   const { jumlah_user, jumlah_bot } = data;
 
   const countPercentageUser = () =>
     jumlah_user !== 0 || jumlah_bot !== 0
-      ? (jumlah_user / (jumlah_bot + jumlah_user)) * 100
+      ? Math.trunc((jumlah_user / (jumlah_bot + jumlah_user)) * 100)
       : 0;
 
   const countPercentageBot = () =>
     jumlah_user !== 0 || jumlah_bot !== 0
-      ? (jumlah_bot / (jumlah_bot + jumlah_user)) * 100
+      ? Math.trunc((jumlah_bot / (jumlah_bot + jumlah_user)) * 100)
       : 0;
 
   return (

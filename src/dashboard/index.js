@@ -12,57 +12,20 @@ import { API_URL } from "../constant";
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState({
-    barchart: {
-      Apr: {
+    barchart: [
+      {
+        month: "Jan 2020",
         bot: 0,
         user: 0,
       },
-      Aug: {
+      {
+        month: "Feb 2020",
         bot: 0,
         user: 0,
       },
-      Dec: {
-        bot: 0,
-        user: 10,
-      },
-      Feb: {
-        bot: 0,
-        user: 0,
-      },
-      Jan: {
-        bot: 0,
-        user: 0,
-      },
-      Jul: {
-        bot: 0,
-        user: 0,
-      },
-      Jun: {
-        bot: 0,
-        user: 0,
-      },
-      Mar: {
-        bot: 0,
-        user: 0,
-      },
-      May: {
-        bot: 0,
-        user: 0,
-      },
-      Nov: {
-        bot: 0,
-        user: 0,
-      },
-      Oct: {
-        bot: 0,
-        user: 0,
-      },
-      Sep: {
-        bot: 0,
-        user: 0,
-      },
-    },
-    latest_tweet: [],
+    ],
+    latest_tweet_bot: [],
+    latest_tweet_human: [],
     pie_chart: {
       jumlah_bot: 0,
       jumlah_user: 0,
@@ -75,18 +38,17 @@ const Dashboard = () => {
 
   const refetch = () => {
     axios.get(API_URL).then((res) => {
-      setResponse(res.data);
+      setResponse(res.data.message);
     });
   };
 
   useEffect(() => {
     setLoading(true);
     axios.get(API_URL).then((res) => {
-      console.log(res);
       setLoading(false);
-      setResponse(res.data);
+      setResponse(res.data.message);
     });
-    setInterval(refetch, 5000);
+    setInterval(refetch, 10000);
   }, []);
 
   const loadingState = (
@@ -122,7 +84,12 @@ const Dashboard = () => {
           <BarChart data={response.barchart} />
         </CCol>
       </CRow>
-      <LatestTweets data={response.latest_tweet} />
+      <LatestTweets
+        data={{
+          bot: response.latest_tweet_bot,
+          human: response.latest_tweet_human,
+        }}
+      />
     </div>
   );
 };

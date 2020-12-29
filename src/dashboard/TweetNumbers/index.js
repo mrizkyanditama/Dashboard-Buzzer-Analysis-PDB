@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
-  CCallout,
-  CWidgetBrand,
-} from "@coreui/react";
+import { CWidgetBrand } from "@coreui/react";
 import { CChartPie } from "@coreui/react-chartjs";
 import CIcon from "@coreui/icons-react";
 import "./module.css";

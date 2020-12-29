@@ -1,17 +1,5 @@
 import React from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
-  CCallout,
-} from "@coreui/react";
+import { CCard, CCardBody } from "@coreui/react";
 import { CChartPie } from "@coreui/react-chartjs";
 
 const PieChart = ({ data }) => {
